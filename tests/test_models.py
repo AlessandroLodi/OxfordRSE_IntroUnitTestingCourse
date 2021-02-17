@@ -39,7 +39,7 @@ def test_daily_min_string():
     from pytest import raises
 
     with raises(TypeError):
-        daily_min([['Cannot', 'min'], ['string', 'arguments']])
+        daily_min([["Cannot", "min"], ["string", "arguments"]])
 
 
 def test_daily_mean_bool():
@@ -56,8 +56,10 @@ def test_daily_mean_bool():
     [
         ([[0, 0], [0, 0], [0, 0]], [0, 0]),
         ([[1, 2], [3, 4], [5, 6]], [3, 4]),
-    ])
+    ],
+)
 def test_daily_mean(test, expected):
     """Test mean function works for array of zeroes and positive integers."""
     from inflammation.models import daily_mean
+
     npt.assert_array_equal(np.array(expected), daily_mean(np.array(test)))
